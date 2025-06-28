@@ -22,7 +22,9 @@ mongoose.connect(process.env.MONGODB_URI, {
 app.get('/', (req, res) => {
   res.send('Server is running');
 });
+
 app.use('/auth', require('./routes/auth.js'));
+app.use('/api', require('./routes/profiles'));
 
 // Error handling middleware
 require('./error-handling/error-handling.js')(app);
