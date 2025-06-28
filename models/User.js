@@ -15,20 +15,25 @@ const userSchema = new Schema(
     passwordHash: {
       type: String,
       required: [true, 'Password is required.']
-    }
-  },
-  {
+    },
+
     role: { 
       type: String, 
-      enum: ['loner', 'matchmaker'] 
+      enum: ['loner', 'matchmaker'],
+      required: true,
+      default: 'matchmaker' // Default role is matchmaker 
+    },
+  
+    profileId: {
+      type: Schema.Types.ObjectId,
+      ref: 'Profile',
+      default: null // Initially no profile is associated
     },
   },
   {
-    profileId: String,
-    
+    timestamps: true // Automatically manage createdAt and updatedAt fields
   }
 );
 
 const User = model("User", userSchema);
-
 module.exports = User;
