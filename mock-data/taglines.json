@@ -1,0 +1,23 @@
+[
+  {
+    "id": "t1",
+    "profileId": "p1",
+    "authorUserId": "u2",
+    "text": "She\u2019s got a compass and a camera \ud83e\udded\ud83d\udcf8",
+    "createdAt": "2025-06-28T10:11:00Z"
+  },
+  {
+    "id": "t2",
+    "profileId": "p2",
+    "authorUserId": "u5",
+    "text": "She finishes marathons... and books \ud83d\udcda",
+    "createdAt": "2025-06-28T10:13:00Z"
+  },
+  {
+    "id": "t3",
+    "profileId": "p3",
+    "authorUserId": "u7",
+    "text": "Brains, bento, and bold moves \ud83c\udf71",
+    "createdAt": "2025-06-28T10:15:00Z"
+  }
+]

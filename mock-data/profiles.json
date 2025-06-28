@@ -1,0 +1,44 @@
+[
+  {
+    "id": "p1",
+    "ownerUserId": "u1",
+    "name": "Jane",
+    "username": "wanderlust_j",
+    "bio": "Explorer of caf\u00e9s and coastlines.",
+    "birthday": "1996-01-14",
+    "sex": "female",
+    "location": "Barcelona",
+    "religion": "None",
+    "tagline": "Sunset chaser \ud83c\udf05",
+    "status": "published",
+    "createdAt": "2025-06-28T10:10:00Z"
+  },
+  {
+    "id": "p2",
+    "ownerUserId": "u3",
+    "name": "Marie",
+    "username": "marathon_marie",
+    "bio": "Runner. Reader. Realist.",
+    "birthday": "1994-03-05",
+    "sex": "female",
+    "location": "Berlin",
+    "religion": "Atheist",
+    "tagline": "Outruns your excuses \ud83c\udfc3\u200d\u2640\ufe0f",
+    "status": "published",
+    "createdAt": "2025-06-28T10:12:00Z"
+  },
+  {
+    "id": "p3",
+    "ownerUserId": "u6",
+    "name": "Ben",
+    "username": "benjamin_thewise",
+    "bio": "Chess nerd with a soft spot for ramen.",
+    "birthday": "1992-11-22",
+    "sex": "male",
+    "location": "Tokyo",
+    "religion": "Buddhist",
+    "tagline": "Strategic thinker \u265f\ufe0f",
+    "status": "draft",
+    "createdAt": "2025-06-28T10:14:00Z"
+  }
+]
