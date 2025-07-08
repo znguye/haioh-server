@@ -5,9 +5,7 @@ const authenticate = require("../middleware/authenticate");
 
 //Models
 const Profile = require('../models/Profile');
-const MatchmakingAction = require('../models/MatchmakingAction');
-const Tagline = require('../models/Tagline');
-const ProfileCreator = require('../models/ProfileCreator');
+const { generateId } = require('../utils/idGenerator');
 
 // MVP: Just matchmaker screens
 
@@ -62,9 +60,13 @@ router.post('/', authenticate, async (req, res, next) => {
       return res.status(200).json({ message: 'Profile updated' });
     }
 
+    // Generate unique ID for new profile
+    const profileId = await generateId('p', Profile);
+
     // Create new
     const newProfile = await Profile.create({
       ...profileData,
+      id: profileId,
       ownerUserId: userId,
     });
 
