@@ -1,24 +1,20 @@
 [
   {
-    "id": "a1",
     "profileId": "p1",
-    "actorUserId": "u4",
+    "actorEmail": "daniel.okoro@test.com",
     "actionType": "like",
     "createdAt": "2025-06-28T10:20:00Z"
   },
   {
-    "id": "a2",
     "profileId": "p2",
-    "actorUserId": "u2",
-    "actionType": "like",
+    "actorEmail": "mei.lin@test.com",
+    "actionType": "not interested",
     "createdAt": "2025-06-28T10:21:00Z"
   },
   {
-    "id": "a3",
     "profileId": "p3",
-    "actorUserId": "u5",
-    "actionType": "comment",
-    "commentText": "This guy's a hidden gem \ud83d\udc8e",
+    "actorEmail": "priya.sharma@test.com",
+    "actionType": "like",
     "createdAt": "2025-06-28T10:22:00Z"
   }
 ]

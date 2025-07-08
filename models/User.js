@@ -4,6 +4,12 @@ const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema(
   {
+    id: { 
+      type: String,
+      required: true,
+      unique: true
+    },
+
     email: {
       type: String,
       required: [true, 'Email is required.'],
@@ -17,18 +23,11 @@ const userSchema = new Schema(
       required: [true, 'Password is required.']
     },
 
-    role: { 
+    status: { 
       type: String, 
-      enum: ['loner', 'matchmaker'],
-      required: true,
-      default: 'matchmaker' // Default role is matchmaker 
-    },
-  
-    profileId: {
-      type: Schema.Types.ObjectId,
-      ref: 'Profile',
-      default: null // Initially no profile is associated
-    },
+      enum: ['active', 'inactive'],
+      default: 'active' 
+    }
   },
   {
     timestamps: true // Automatically manage createdAt and updatedAt fields

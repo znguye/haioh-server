@@ -3,52 +3,48 @@
     "id": "u1",
     "email": "jane@example.com",
     "passwordHash": "$2b$10$123...",
-    "role": "loner",
-    "profileId": "p1",
+    "status": "active",
     "createdAt": "2025-06-28T10:00:00Z"
   },
   {
     "id": "u2",
     "email": "alex@example.com",
     "passwordHash": "$2b$10$456...",
-    "role": "matchmaker",
+    "status": "active",
     "createdAt": "2025-06-28T10:01:00Z"
   },
   {
     "id": "u3",
     "email": "marie@example.com",
     "passwordHash": "$2b$10$789...",
-    "role": "loner",
-    "profileId": "p2",
+    "status": "active",
     "createdAt": "2025-06-28T10:02:00Z"
   },
   {
     "id": "u4",
     "email": "tom@example.com",
     "passwordHash": "$2b$10$abc...",
-    "role": "matchmaker",
+    "status": "active",
     "createdAt": "2025-06-28T10:03:00Z"
   },
   {
     "id": "u5",
     "email": "lisa@example.com",
     "passwordHash": "$2b$10$def...",
-    "role": "matchmaker",
     "createdAt": "2025-06-28T10:04:00Z"
   },
   {
     "id": "u6",
     "email": "ben@example.com",
     "passwordHash": "$2b$10$ghi...",
-    "role": "loner",
-    "profileId": "p3",
+    "status": "active",
     "createdAt": "2025-06-28T10:05:00Z"
   },
   {
     "id": "u7",
     "email": "nora@example.com",
     "passwordHash": "$2b$10$jkl...",
-    "role": "matchmaker",
+    "status": "active",
     "createdAt": "2025-06-28T10:06:00Z"
   }
 ]

@@ -1,15 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/User.js');
+
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const authenticate = require('../middleware/authenticate.js');
+const {generateId} = require ("../utils/idGenerator.js");
 
+const User = require('../models/User.js');
+// const Profile = require('../models/Profile.js');
 
+// SIGN UP ROUTE
 router.post('/signup', async (req, res, next) => {
     try {
 
-        const { email, password, role } = req.body;
+        const { email, password} = req.body;
 
         // Check if email or password are provided as empty string 
         if (!email || !password) {
@@ -35,21 +39,22 @@ router.post('/signup', async (req, res, next) => {
             return res.status(400).json({ message: 'Password must have at least 6 characters, include one uppercase, one lowercase, and one number.' });
         }
 
-        // Hash the password
+        // Generate a user ID and hash the password
+        const userId = await generateId("u", User);
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Create a new user
+        // Create and save user
         const newUser = new User({
-            email,
-            passwordHash: hashedPassword,
-            role // Assuming role is part of the user model
-        }); 
+        id: userId,
+        email,
+        passwordHash: hashedPassword
+        });
 
         await newUser.save();
 
         res.status(201).json({ 
             message: 'User created successfully', 
-            user: { email: newUser.email, role: newUser.role } 
+            user: { id: newUser.id, email: newUser.email} 
         });
     } catch (error) {
         next(error);
@@ -82,12 +87,12 @@ router.post('/login', async (req, res, next) => {
 
         // Generate a JWT token and add token expiration
         const token = jwt.sign(
-        { userId: user._id, role: user.role },
+        { userId: user._id },
         process.env.JWT_SECRET,
         { algorithm: 'HS256', expiresIn: '1d' }
         );
         res.status(200).json({ 
-            message: 'Login successful', token, user: { email: user.email, role: user.role } });
+            message: 'Login successful', token, user: { id: user.id, email: user.email} });
 
     } catch (error) {
         next(error);
@@ -102,7 +107,7 @@ router.get('/verify', (req, res, next) => {
 
         // Check if token is provided
         // Token format: "Bearer <token>"
-        const token = authHeader && authHeader.split(' ')[1];
+        const token = authHeader?.split(' ')[1];
 
         if (!token) {
             return res.status(401).json({ message: 'No token provided' });

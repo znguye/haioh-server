@@ -2,64 +2,88 @@ const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
 const profileSchema = new Schema(
-  {
-    ownerUserId: {
-      type: Schema.Types.ObjectId,
-      ref: 'User',
-      required: true
-    },
+    {
+        id: {
+            type: String,
+            required: true,
+            unique: true // e.g., "p1", "p2"
+        },
 
-    name: {
-      type: String,
-      required: true,
-      trim: true
-    },
+        ownerUserId: {
+            type: String,
+            required: true // e.g., "u1", "u2"
+        },
 
-    username: {
-      type: String,
-      required: true,
-      unique: true,
-      trim: true
-    },
+        matchmaker_email: {
+            type: String,
+            trim: true
+        },
 
-    bio: {
-      type: String,
-      maxlength: 500
-    },
+        first_name: {
+            type: String,
+            required: true,
+            trim: true
+        },
 
-    birthday: {
-      type: Date,
-      required: true
-    },
+        last_name: {
+            type: String,
+            trim: true
+        },
 
-    sex: {
-      type: String,
-      enum: ['male', 'female', 'other'],
-      required: true
-    },
+        username: {
+            type: String,
+            required: true,
+            unique: true,
+            trim: true
+        },
 
-    location: {
-      type: String
-    },
+        email: {
+            type: String,
+            trim: true
+        },
 
-    religion: {
-      type: String
-    },
+        birthday: {
+            type: Date,
+            required: true
+        },
 
-    tagline: {
-      type: String,
-      maxlength: 100
-    },
+        gender: {
+            type: String,
+            enum: ['male', 'female', 'other'],
+            required: true
+        },
 
-    status: {
-      type: String,
-      enum: ['draft', 'published'],
-      default: 'draft'
-    }
-  },
-  {
-    timestamps: true // creates createdAt and updatedAt fields
-  }
+        from: {
+            type: String,
+        },
+
+        profilePicture: {
+            type: String
+        },
+
+        photo: {
+            type: String
+        },
+
+        tagline: {
+            type: String,
+            maxlength: 100
+        },
+
+        description: {
+            type: String,
+            maxlength: 1000
+        },
+
+        status: {
+            type: String,
+            enum: ['draft', 'published'],
+            default: 'draft'
+        }
+    },
+        {
+            timestamps: true // creates createdAt and updatedAt fields
+        }
 );
 
 const Profile = model('Profile', profileSchema);
