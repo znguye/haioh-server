@@ -4,11 +4,11 @@ require("./db");
 const express = require('express');
 const app = express();
 // const mongoose = require('mongoose');
-const cors = require('cors');
+const cors_middleware = require('cors');
 
 const allowedOrigins = ['https://yakrush.netlify.app'];
 
-app.use(cors({
+app.use(cors_middleware({
   origin: allowedOrigins,
   credentials: true, 
 }));
