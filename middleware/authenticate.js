@@ -17,7 +17,8 @@ const authenticate = async (req, res, next) => {
       return res.status(404).json({ message: 'User not found.' });
     }
 
-    req.user = user; 
+    // req.user = user; 
+    req.user = { userId: user._id.toString() };
     next();
   } catch (err) {
     res.status(403).json({ message: 'Invalid or expired token.' });
