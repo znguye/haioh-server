@@ -6,13 +6,15 @@ const app = express();
 // const mongoose = require('mongoose');
 const cors = require('cors');
 
+const cors = require('cors');
+
+const allowedOrigins = ['https://yakrush.netlify.app'];
+
 app.use(cors({
-    origin: [
-    'http://localhost:5173', // local dev
-    'https://yakrush.netlify.app' // deployed site
-  ],
-  credentials: true
+  origin: allowedOrigins,
+  credentials: true, 
 }));
+
 app.use(express.json());
 
 // Import routes
