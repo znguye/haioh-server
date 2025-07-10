@@ -138,4 +138,32 @@ router.get('/verify', (req, res, next) => {
     
 });
 
+// LOGOUT ROUTE (stateless, for future extensibility)
+router.post('/logout', (req, res) => {
+    // In a stateless JWT setup, logout is handled on the client by deleting the token.
+    // This endpoint exists for future extensibility (e.g., token blacklist).
+    res.status(200).json({ message: 'Logged out successfully (client should delete token).' });
+});
+
+// DELETE /auth/delete-account
+router.delete('/delete-account', authenticate, async (req, res, next) => {
+  try {
+    const userId = req.user._id;
+
+    const deletedUser = await User.findByIdAndDelete(userId);
+
+    if (!deletedUser) {
+      return res.status(404).json({ message: 'User not found or already deleted.' });
+    }
+
+    // Optionally: Delete related data (e.g., Profile, Likes, etc.)
+    // await Profile.deleteOne({ userId: deletedUser._id });
+
+    res.status(200).json({ message: 'Account deleted successfully.' });
+  } catch (error) {
+    next(error);
+  }
+});
+
+
 module.exports = router;

@@ -39,4 +39,26 @@ router.get('/liked-by/:email', async (req, res, next) => {
   }
 });
 
+// Delete a like/match by profileId and actorEmail
+router.delete('/:profileId/:actorEmail', async (req, res, next) => {
+  try {
+    const { profileId, actorEmail } = req.params;
+
+    const result = await MatchmakingAction.findOneAndDelete({
+      profileId,
+      actorEmail,
+      actionType: 'like'
+    });
+
+    if (!result) {
+      return res.status(404).json({ message: 'Match not found' });
+    }
+
+    res.status(200).json({ message: 'Match deleted' });
+  } catch (err) {
+    next(err);
+  }
+});
+
+
 module.exports = router;
