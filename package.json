@@ -31,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/znguye/haioh-server/issues"
   },
-  "homepage": "https://github.com/znguye/haioh-server#readme"
+  "homepage": "https://github.com/znguye/haioh-server#readme",
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.7.10"
+  }
 }
