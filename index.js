@@ -36,7 +36,7 @@ app.use('/matchmaking-actions', matchmakingRoutes);
 require('./error-handling/error-handling.js')(app);
 
 // Serve static files from the React app
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);
 });
