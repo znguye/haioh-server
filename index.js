@@ -6,8 +6,6 @@ const app = express();
 // const mongoose = require('mongoose');
 const cors = require('cors');
 
-const cors = require('cors');
-
 const allowedOrigins = ['https://yakrush.netlify.app'];
 
 app.use(cors({
